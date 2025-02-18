@@ -1,0 +1,118 @@
+@use "../../grobal/mixin" as *;
+@use "../../grobal/variable" as *;
+
+// NEWS部分（ulタグとliタグで構成する）
+.news {
+  padding: 8rem 0;
+  background-color: rgba(77, 150, 0, 0.102);
+  @include sp {
+    padding: 5.1rem 0;
+  }
+  &__contents {
+    margin-top: 6.8rem;
+    @include sp {
+      margin-top: 3.8rem;
+    }
+  }
+  &__blocks {
+    display: flex;
+    column-gap: 6rem;
+    @include sp {
+      display: initial;
+    }
+  }
+
+  // お知らせブログの更新履歴
+  &-block {
+    background-color: $text-white;
+    flex: 1;
+    // タイトル部分
+    &__title {
+      background-color: $section-color;
+      height: 5rem;
+      display: flex;
+      align-items: center;
+      padding-left: 2rem;
+      @include sp {
+        margin-top: 5.2rem;
+      }
+      &.first {
+        @include sp {
+          margin-top: 4.3rem;
+        }
+      }
+      h3 {
+        color: $text-white;
+        font-size: 2rem;
+      }
+    }
+    // 内容部分
+    &__content {
+      padding: 1rem 2rem 2rem;
+      @include sp {
+      }
+    }
+
+    &-item {
+      display: flex;
+      border-bottom: 1px $section-color solid;
+      font-size: 1.8rem;
+      column-gap: 6.9rem;
+      padding-block: 1.6rem;
+      @include sp {
+        column-gap: initial;
+      }
+      &__date {
+        line-height: calc(33 / 16);
+        font-size: 1.6rem;
+        @include sp {
+          margin-right: 1.5rem;
+        }
+      }
+      &__title {
+        line-height: calc(25 / 18);
+        font-size: 1.8rem;
+        flex: 1;
+        h3 {
+          @include sp {
+            font-size: 1.8rem;
+          }
+        }
+      }
+    }
+
+    &__link-more {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 3.3rem;
+      a {
+        color: $section-color;
+        font-size: 2rem;
+        position: relative;
+        transition: 0.3s;
+        cursor: pointer;
+        .more-arrow {
+          display: block;
+          width: 8rem;
+          position: absolute;
+          bottom: -0.4rem;
+          left: 0;
+        }
+      }
+      a:hover {
+        animation: move-right 1s forwards ease-in-out;
+      }
+    }
+  }
+}
+
+@keyframes move-right {
+  0%,
+  100% {
+    transform: translateX(0); /* 元の位置 */
+  }
+  50% {
+    transform: translateX(1rem); /* 右に移動 */
+  }
+}

@@ -1,0 +1,13 @@
+// SPサイトで表示
+@mixin sp {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+// PCサイトで表示
+@mixin pc {
+  @media (min-width: 768px) {
+    @content;
+  }
+}

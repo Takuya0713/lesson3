@@ -1,0 +1,73 @@
+@use "../grobal/_mixin" as *;
+@use "../grobal/_variable" as *;
+
+html {
+  -webkit-appearance: none;
+  -webkit-text-size-adjust: 100%;
+  // CSSでスムーズに戻すときはこちらを使い、jQuery使うときはコメントアウトする。
+  scroll-behavior: smooth;
+  word-break: break-all;
+  box-sizing: border-box;
+  scroll-padding-top: 5rem;
+  // 1020以下フォントサイズをPC・タブレット・スマートフォン毎に設定する
+  font-size: 10px;
+  @media (min-width: 768px) and (max-width: 980px) {
+    font-size: vw(10, 980);
+  }
+  @include sp {
+    font-size: vw(10, 375);
+  }
+}
+
+body {
+  color: #000000;
+  // font-family: 'YuMincho', 'Hiragino Mincho ProN', serif;
+  font-family: "YuMincho", "Yu Mincho", "游明朝体", "游明朝",
+    "ヒラギノ明朝 ProN", "Hiragino Mincho ProN", "MS Mincho", "ＭＳ 明朝", serif;
+  // ★↑フォントは確認する
+  font-family: "游明朝", "Yu Mincho", YuMincho, "Hiragino Mincho Pro", serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+#main {
+  background-color: #ddd;
+  padding: 50px 0;
+}
+
+@include sp {
+  .pc {
+    display: none !important;
+  }
+}
+@include pc {
+  .sp {
+    display: none !important;
+  }
+}
+
+// 画像の自動調整部分を追記
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#container {
+  width: 100%;
+  overflow: hidden;
+  // ↑横スクロールが非表示される。横スクロールが表示される場合に適用する。
+  // position: stickyを使用する場合は、上記記述があると機能しない。
+}
+
+// 各セクション部分の全体幅設定
+.inner {
+  width: 92rem;
+  // max-width: calc(1080px - 80px * 2);
+  // max-widthからwidthに変更（ケンタローさんレクチャー）
+  margin: 0 auto;
+  @include sp {
+    width: 31.5rem;
+    // SPの時の横幅は315pxで固定。
+  }
+}

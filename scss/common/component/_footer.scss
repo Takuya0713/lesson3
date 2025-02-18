@@ -1,0 +1,105 @@
+@use "../../grobal/mixin" as *;
+@use "../../grobal/variable" as *;
+
+// フッターリンク
+.footer {
+  padding: 8rem 0 0 0;
+  margin: 0 auto;
+  @include sp {
+    padding-top: initial;
+  }
+  &-inner {
+    max-width: calc(722 / 1080 * 100vw);
+    margin: 0 auto;
+    @include sp {
+      max-width: initial;
+      padding: 5rem 3rem 0;
+    }
+  }
+  .footer-wrapper {
+    h3 {
+      text-align: center;
+      border-bottom: 1px solid#000000;
+      padding-bottom: 2.8rem;
+      font-size: 2rem;
+      @include sp {
+        padding-bottom: 2.1rem;
+        margin: -0.4rem 0 0.1rem 0;
+      }
+    }
+  }
+  .footer-nav {
+    margin: 3.1rem 0.6rem 0;
+    @include sp {
+      margin: 2.6rem 0 0;
+    }
+    ul {
+      display: flex;
+      align-items: center; /*  */
+      // column-gap: 5rem;
+      // 以下中央寄せ
+      // margin: -0.5rem auto 0;
+      // width: fit-content;
+      justify-content: space-between;
+      @include sp {
+        flex-wrap: wrap;
+        align-items: initial;
+        justify-content: center;
+        column-gap: 3rem;
+        padding: initial;
+        margin: 2.6rem 0 2.8rem 0;
+        row-gap: 1rem;
+      }
+    }
+    li {
+      font-weight: normal;
+      cursor: pointer;
+      font-size: 1.8rem;
+      a:hover {
+        opacity: 0.75;
+      }
+    }
+    .sns-links {
+      padding-bottom: 8rem;
+      margin-top: 3rem;
+      @include sp {
+        padding-bottom: 5rem;
+        margin-top: initial;
+      }
+      ul {
+        width: calc(202 / 722 * 100vw);
+        margin: 0 auto;
+        width: fit-content;
+        column-gap: 3rem;
+        display: flex;
+        align-items: center;
+        // justify-content: center;
+        @include sp {
+          width: initial;
+        }
+      }
+    }
+  }
+  // フッターコピーライト（著作権）
+  .copyright {
+    background-color: $section-color;
+    padding: 3rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: $text-white;
+    @include sp {
+      padding: 2rem 0;
+    }
+    small {
+      font-size: 2rem;
+      line-height: calc(33 / 20);
+      @include sp {
+        display: flex;
+        justify-content: center;
+        line-height: calc(25 / 20);
+      }
+    }
+  }
+}

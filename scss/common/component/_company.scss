@@ -1,0 +1,95 @@
+@use "../../grobal/mixin" as *;
+@use "../../grobal/variable" as *;
+
+// COMPANY部分
+.company {
+  position: relative;
+  padding: 8rem 0 13.2rem;
+  @include sp {
+    padding: 5rem 0;
+  }
+
+  // 地図所在地部分
+  // 地図部分の大きさ
+  .company-item {
+    position: relative;
+    // 移設先（margin-topで記述する）
+    &__map {
+      position: relative;
+      z-index: 10;
+      margin-top: 6.8rem;
+      @include sp {
+        margin-top: 4.5rem;
+      }
+
+      iframe {
+        width: 60rem;
+        height: 40rem;
+        @include sp {
+          // width: 100%;
+          width: 31.5rem;
+          height: 30rem;
+        }
+      }
+    }
+    &__textarea {
+      background-color: $section-color;
+      color: $text-white;
+      height: 26.2rem;
+      width: 50rem;
+      right: 0;
+      top: 20rem;
+      // %で設定すると背景色が上に引きずられなくなる
+      position: absolute;
+      padding: 4rem 0.5rem 4.2rem 22rem;
+      @include sp {
+        position: initial;
+        width: initial;
+        padding: 1.9rem 0 1.7rem 2rem;
+        height: initial;
+        margin-top: 1.5rem;
+      }
+    }
+  }
+  &-item__company-name {
+    margin-bottom: 0.7rem;
+    font-size: 2rem;
+    line-height: calc(33 / 20);
+    @include sp {
+      margin-bottom: initial;
+    }
+  }
+  // 郵便番号と住所
+  &-item__address {
+    margin-bottom: 1.2rem;
+    font-size: 1.6rem;
+  }
+  // 電話番号
+  &-item__tel {
+    margin-bottom: 1.9rem;
+    @include sp {
+      margin-bottom: initial;
+    }
+    p {
+      font-size: 1.6rem;
+      .ib-span {
+        font-size: 2.5rem;
+      }
+    }
+    a {
+      display: inline-block; /* クリック範囲を確保 */
+      pointer-events: auto; /* クリックを有効にする */
+      color: inherit; /* 見た目の変更がなければ継承 */
+      text-decoration: none; /* 必要なら下線を消す */
+    }
+  }
+  // メールアドレス
+  &-item__mail {
+    @include sp {
+      margin-top: 0.1rem;
+    }
+    p {
+      font-size: 1.6rem;
+    }
+  }
+}

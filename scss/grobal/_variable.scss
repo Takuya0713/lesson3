@@ -1,0 +1,16 @@
+// 変数一覧
+// 色
+$section-color: #4d9600;
+$text-white: #ffffff;
+
+// min(calc(80 / 1080 * 100vw))
+@function vw($pixelSize , $baseWidth: 1080){
+  @return calc($pixelSize / $baseWidth * 100vw);
+}
+
+// min(calc(80 / 1080 * 100vw))
+// マイナスと時に使用する（topマイナスの時）
+@function vwM($pixelSize , $baseWidth: 1080){
+  @return min(vw($pixelSize) , $pixelSize * 1px);
+}
+// 1105vwMはremに直すこと！

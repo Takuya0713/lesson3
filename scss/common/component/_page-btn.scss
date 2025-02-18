@@ -1,0 +1,36 @@
+@use "../../grobal/mixin" as *;
+@use "../../grobal/variable" as *;
+
+// TOPへ戻るボタン
+.scroll-top-btn {
+  position: fixed;
+  bottom: 6rem;
+  right: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $section-color;
+  width: 6.8rem;
+  height: 6.8rem;
+  border-radius: 50%;
+  @include sp {
+    width: 5rem;
+    height: 5rem;
+    right: 2rem;
+  }
+  img {
+    @include sp {
+      width: 1.7rem;
+      height: 1.15rem;
+    }
+  }
+  &:hover,
+  &:hover img {
+    opacity: 0.75;
+    transition: 0.5s;
+    cursor: pointer;
+    filter: alpha(opacity=50);
+    @include sp {
+    }
+  }
+}

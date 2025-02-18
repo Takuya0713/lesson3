@@ -1,0 +1,212 @@
+@use "../../grobal/mixin" as *;
+@use "../../grobal/variable" as *;
+.header {
+  align-items: center;
+  color: $text-white;
+  position: fixed;
+  padding: vw(25) vw(80);
+  z-index: 999;
+  width: 100%;
+  display: flex;
+  height: 8rem;
+  left: 0;
+  top: 0;
+  // スクロールした時の背景色（切り替えはjQueryで行う）
+  @include sp {
+    height: 5rem;
+    padding-right: 0;
+    justify-content: space-between;
+  }
+  &.scroll-bg {
+    background-color: $section-color;
+    color: $text-white;
+    position: fixed;
+  }
+
+  // ヘッダーロゴ部分
+  .header__title {
+    font-size: vw(20);
+    height: inherit;
+    display: flex;
+    align-items: center;
+    @include sp {
+      font-size: 2rem;
+    }
+    h1 {
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 8rem;
+      }
+      a:hover {
+        opacity: 0.75;
+      }
+    }
+  }
+
+  // ハンバーガーボタン部分
+  .hamburger {
+    @include sp {
+      transition: 0.3s;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 7.2rem;
+      height: 5rem;
+      background-color: #fff;
+      cursor: pointer;
+      row-gap: 0.7rem;
+      // ハンバーガーclose時（×）
+      &-line {
+        display: block;
+        background-color: $section-color;
+        border-radius: 0.2rem;
+        width: 3.2rem;
+        height: 0;
+        padding-block: 0.2rem;
+      }
+    }
+
+    // ハンバーガーopen時の動作（三→×）
+    &.active {
+      span {
+        &:nth-child(1) {
+          transform: rotate(45deg) translate(0.8rem, 0.8rem);
+        }
+
+        &:nth-child(2) {
+          background-color: transparent;
+        }
+
+        &:nth-child(3) {
+          transform: rotate(-45deg) translate(0.8rem, -0.8rem);
+        }
+      }
+    }
+  }
+  // ナビゲーション表示部分
+  .header__nav {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    height: inherit;
+    @include sp {
+      position: fixed;
+      top: 5rem;
+      left: 7.5rem;
+      right: 0;
+      align-items: initial;
+    }
+    // 0213追加
+    &.active ul {
+      transform: translateX(0%);
+    }
+    ul {
+      display: flex;
+      column-gap: 3.1rem;
+      @include sp {
+        display: block;
+        align-items: center;
+        column-gap: initial;
+        width: 30rem;
+        transform: translateX(100%);
+        // 0213追加
+        transition: transform 0.3s ease-in-out;
+      }
+    }
+    li {
+      color: $text-white;
+      font-size: vw(18);
+      line-height: calc(33 / 18);
+      a {
+        height: 8rem;
+        display: flex;
+        align-items: center;
+        position: relative;
+        @include sp {
+          height: 5.8rem;
+          // (348 / 6) = 5.8rem
+        }
+      }
+      a:before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 0.1rem;
+        background-color: $text-white;
+        bottom: 2.8rem;
+        left: 0;
+        clip-path: inset(0 100% 0 0);
+        // clip-path: inset(0 80% 0 0);
+        // 各方向から何%消すかの値
+        transition: all 0.4s;
+        @include sp {
+          height: initial;
+          // 原因メモ：clip-pathはspサイトでオフにすることで消える。
+        }
+      }
+
+      a:hover {
+        opacity: 0.75;
+        &::before {
+          clip-path: inset(0 0 0 0);
+        }
+      }
+    }
+    &.active {
+      @include sp {
+        position: fixed;
+        top: 5rem;
+        left: 7.5rem;
+        right: 0;
+      }
+
+      ul {
+        @include sp {
+          display: block;
+          width: 30rem;
+          transform: translateX(0%);
+          transition: 0.3s;
+        }
+        // 通常時は非表示でなく右に引っ込める。SP用のコードがやはり必要となる。
+        // ハンバーガーメニューボタンが押下されたときに左の所定の位置に表示する。
+      }
+      li {
+        @include sp {
+          padding: 1.2rem 0 1.2rem 2rem;
+          background-color: $section-color;
+          font-size: 1.8rem;
+          // タップ時にボタン部分が黒く反応するようにしたい
+        }
+        &:hover {
+          @include sp {
+            background-color: rgba(0, 0, 0, 1);
+          }
+        }
+      }
+    }
+    @include sp {
+      a {
+        display: block;
+        width: 100%;
+        padding-left: initial;
+      }
+    }
+  }
+}
+
+.header__nav {
+  @include sp {
+    transform: translateX(100%);
+    // transition: transform 0.3s ease-in-out;
+  }
+}
+
+.header__nav.active {
+  @include sp {
+    transform: translateX(0%);
+  }
+}

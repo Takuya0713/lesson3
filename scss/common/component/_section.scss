@@ -1,0 +1,50 @@
+@use "../../grobal/mixin" as *;
+@use "../../grobal/variable" as *;
+
+// 各セクション共通部分（親要素）
+.section {
+  .common-title {
+    // タイトル（英語部分）
+    h2 {
+      color: #4d9600;
+      font-size: 3rem;
+      text-align: center;
+      line-height: calc(33 / 30);
+      // letter-spacing: calc(30 / 100 * 1rem);
+      // 文字間隔30%を100%で割って、1remで掛ける
+      letter-spacing: calc(80 / 100 * 1rem);
+      @include sp {
+        letter-spacing: calc(80 / 100 * 1rem);
+      }
+    }
+    // タイトル（日本語部分）
+    p {
+      color: #000000;
+      font-size: 2rem;
+      display: block;
+      line-height: calc(33 / 20);
+      letter-spacing: calc(30 / 100 * 1rem);
+      text-align: center;
+      margin-top: .7rem;
+      @include sp {
+        margin-top: 0;
+      }
+    }
+  }
+  .service__contents {
+    margin-top: 6.8rem;
+    @include sp {
+      margin-top: 4.2rem;
+    }
+    h3 {
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.6rem;
+      // margin-top: 1.9rem;
+      @include sp {
+        // margin-top: initial;
+      }
+    }
+  }
+}

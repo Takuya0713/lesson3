@@ -1,0 +1,15 @@
+// commonフォルダ内を読み込む
+// reset リセット用CSS
+@use '../scss/common/reset';
+// base 元となる部分のCSS
+@use '../scss/common/base';
+
+// componentフォルダ内を読み込む
+// 各セクションごとのSCSSを読み込む
+@use '../scss/common/component';
+
+// 名前空間部分の読み込み→topとabout部分も読み込む
+@use '../scss/page/index';
+
+// AOS読み込み
+@use '../scss/aos/aos.scss';

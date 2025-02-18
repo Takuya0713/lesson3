@@ -1,0 +1,76 @@
+@use "../../grobal/mixin" as *;
+@use "../../grobal/variable" as *;
+
+// モーダル表示の時、背景を動かさない。
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.modal {
+  .modal-area {
+    display: grid;
+    place-content: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    &.is-active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .modal-bg {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .modal-content {
+    position: relative;
+    z-index: 5;
+    width: 45rem;
+    padding: 1.5rem 1.5rem 0.6rem;
+    height: auto;
+    background: #fff;
+    @include sp {
+      width: 31.5rem;
+      padding: 2rem 2rem 1.4rem 2rem;
+    }
+  }
+  .modal-close {
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+    transform: rotate(45deg);
+    pointer-events: auto;
+    cursor: pointer;
+    span {
+      width: 100%;
+      height: 0.1rem;
+      background: #000;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      &:nth-of-type(2) {
+        transform: translateY(-50%) rotate(90deg);
+      }
+    }
+  }
+  .modal-caption {
+    margin: 0.9rem 0 0;
+    @include sp {
+      margin: 0.7rem 0 0;
+    }
+  }
+}

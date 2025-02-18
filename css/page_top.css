@@ -1,0 +1,10 @@
+#page_top {
+  width: 2.315rem;
+  background-color: #4d9600;
+  position: relative;
+}
+#page_top a {
+  position: absolute;
+  content: "";
+  background-color: #4d9600;
+}/*# sourceMappingURL=page_top.css.map */

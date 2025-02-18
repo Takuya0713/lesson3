@@ -1,0 +1,348 @@
+@use "../../grobal/mixin" as *;
+@use "../../grobal/variable" as *;
+
+// CONTACT部分
+// 全体
+.contact {
+  padding: 8rem 0;
+  background-color: rgba(77, 150, 0, 0.102);
+  @include sp {
+    padding: 5rem 0;
+  }
+  &__contents {
+    padding-inline: 6rem;
+    @include sp {
+      padding-inline: 0;
+    }
+  }
+  // 3営業日以内にメールにてご連絡いたします。
+  &__announce {
+    font-size: 2rem;
+    margin-top: 3.5rem;
+    margin-bottom: 7rem;
+    @include sp {
+      margin-bottom: initial;
+      margin-top: 4rem;
+    }
+  }
+  // お問合せ内容部分
+  .section-item {
+    display: flex;
+    align-items: center;
+    @include sp {
+      display: block;
+    }
+    // お名前の部分の外余白のみ50px空ける
+    &.mail {
+      margin-top: 3.3rem;
+      @include sp {
+        display: initial;
+        margin-top: 2.6rem;
+      }
+    }
+    &.name {
+      margin-top: 5rem;
+      @include sp {
+        margin-top: 3rem;
+      }
+    }
+    &.gender {
+      margin-top: 4rem;
+      @include sp {
+        display: flex;
+        margin-top: 2.5rem;
+      }
+      &label {
+        @include sp {
+          display: flex;
+        }
+      }
+      &.comment-form {
+        margin-top: 1rem;
+      }
+    }
+    &.inquiry {
+      margin-top: 5rem;
+      @include sp {
+        margin-top: initial;
+      }
+    }
+
+    &.mail label {
+      @include sp {
+        margin-top: 1rem;
+      }
+    }
+    &.inquiry label {
+      @include sp {
+        margin-top: 2.4rem;
+      }
+    }
+    &.comment-form label {
+      @include sp {
+        margin-top: 2.4rem;
+      }
+    } // 内容ラベル部分
+    &.comment-label {
+      display: block;
+      margin-top: 4rem;
+      @include sp {
+        margin-top: 2.5rem;
+      }
+    }
+  }
+  // 性別のセクション名の表示がおかしい
+  dt {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    @include sp {
+      justify-content: center;
+      display: initial;
+    }
+    // ラベル部分全体
+    label {
+      width: 17rem;
+      height: 5rem;
+      display: flex;
+      align-items: center;
+      font-size: 2rem;
+      @include sp {
+        width: 100%;
+      }
+    }
+  }
+  // 各要素の配置
+  dd {
+    flex: 1;
+  }
+  // チェックボタンの間
+  .gender__checks {
+    column-gap: 7.7rem;
+    display: flex;
+    @include sp {
+      margin-left: 5rem;
+      column-gap: 3rem;
+    }
+    input[type="radio"] {
+      display: none;
+      & + span {
+        position: relative;
+        display: block;
+        padding-left: 4rem;
+        font-size: 1.8rem;
+        @include sp {
+          padding-left: 4rem;
+        }
+        &::before {
+          content: "";
+          height: 2rem;
+          width: 2rem;
+          position: absolute;
+          display: block;
+          background-color: $text-white;
+          border: 1px solid $text-white;
+          border-radius: 50%;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          // 元の位置に戻す
+        }
+
+        &::after {
+          content: "";
+          height: 0.6rem;
+          width: 0.6rem;
+          background-color: #000000;
+          display: block;
+          border-radius: 50%;
+          position: absolute;
+          top: 50%;
+          left: 0.7rem;
+          transform: translateY(-50%);
+          display: none;
+        }
+      }
+      // チェックが入った時の黒部分表示
+      &:checked + span {
+        &::after {
+          display: block;
+        }
+      }
+    }
+  }
+  // 性別選択（ラジオボタン）
+  .radio_btn {
+    width: vwM(20);
+    margin-right: 1.9rem;
+  }
+  // 何を見て当社HPを知りましたか？ (複数回答可)部分
+  &__check {
+    display: flex;
+    label {
+      width: vwM(200);
+      input[type="checkbox"] {
+        position: relative;
+        display: none;
+        // 元々のチェックボックスは非表示にする
+        transform: scale(1.5);
+      }
+    }
+  }
+  // inputタグとtextareaタグの共通する部分
+  input,
+  textarea {
+    background-color: $text-white;
+    // width: vwM(630);
+    width: 63rem;
+    height: 5rem;
+    padding-inline: 2rem;
+    display: inline-block;
+    font-size: 1.6rem;
+    @include sp {
+      width: 100%;
+      margin-top: -0.5rem;
+    }
+    &::placeholder {
+      color: #a0a0a0;
+    }
+  }
+  // 背景色を白色にする
+  // 問い合わせ種別の選択部分
+  select {
+    background-color: $text-white;
+  }
+  // 1022ここから修正する
+  // 問い合わせ内容
+  textarea {
+    height: 20rem;
+    width: 80rem;
+    padding-inline: 0;
+    padding: 1rem;
+    @include sp {
+      width: 100%;
+    }
+  }
+  select {
+    display: flex;
+    align-items: center;
+    padding-inline: 2rem;
+    width: 63rem;
+    height: 5rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+    @include sp {
+      width: 100%;
+    }
+  }
+  .selectbox {
+    position: relative;
+    @include sp {
+      margin-top: -0.5rem;
+    }
+  }
+  .selectbox::after {
+    content: "▼";
+    color: $section-color;
+    font-size: 2rem;
+    position: absolute;
+    bottom: 2.5rem;
+    left: 59rem;
+    width: 2rem;
+    height: 1.6rem;
+    // 三角部分をクリックできるようにする。
+    pointer-events: none;
+  }
+}
+// 何を見て当社HPを知りましたか？（親要素）
+// チェックボックスのラベル→修正する
+.check-box {
+  &__check {
+    .check-item-wrap {
+      display: flex;
+      width: 24%;
+      @include sp {
+        width: 50%;
+        // padding: 0.5rem 0;
+      }
+    }
+  }
+  dl {
+    dt {
+      .questionnaire {
+        margin: 4rem 0 1rem 0;
+        font-size: 2rem;
+        @include sp {
+          margin: initial;
+          margin-top: 2.5rem;
+        }
+      }
+    }
+    dd {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      row-gap: 1.5rem;
+      column-gap: 1rem;
+      @include sp {
+        // margin-top: -.7rem;
+        row-gap: 0.3rem;
+        column-gap: initial;
+      }
+      input[type="checkbox"] {
+        position: relative;
+        display: none;
+        // HTMLのチェックボックスが表現されないようにする
+        & + span {
+          position: relative;
+          // display: block;
+          display: inline-block;
+          font-size: 1.8rem;
+          padding-left: 4rem;
+          cursor: pointer;
+          @include sp {
+            font-size: 1.6rem;
+            padding-left: 3rem;
+          }
+          &::before,
+          &::after {
+            content: "";
+            position: absolute;
+            display: block;
+          }
+          &::before {
+            background-color: $text-white;
+            height: 2rem;
+            width: 2rem;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+          &::after {
+            border-right: 3px solid #000000;
+            border-bottom: 3px solid #000000;
+            transform: rotate(45deg);
+            height: 1.6rem;
+            width: 0.7rem;
+            position: absolute;
+            top: 0.4rem;
+            left: 0.7rem;
+            opacity: 0;
+          }
+        }
+        &:checked {
+          & + span {
+            &::after {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.gender {
+  @include sp {
+    margin-top: 2.6rem;
+  }
+}

@@ -1,0 +1,99 @@
+@use "../../grobal/mixin" as *;
+@use "../../grobal/variable" as *;
+
+// SERVICE全体の余白
+.service {
+  padding: 8rem 0 13rem;
+  background-color: rgba(77, 150, 0, 0.102);
+  @include sp {
+    padding: 5rem 0 5rem 0;
+  }
+  .pic-text {
+    @include sp {
+      margin-top: initial;
+      // margin: 0.5rem 0 0.6rem 0;
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    row-gap: 13.1rem;
+    @include sp {
+      row-gap: 5rem;
+    }
+  }
+  .service-item {
+    display: flex;
+    position: relative;
+    @include sp {
+      flex-direction: column;
+    }
+    &:nth-of-type(2) {
+      justify-content: flex-end;
+
+      .service-item__image {
+        p {
+          text-align: right;
+          @include sp {
+            text-align: initial;
+          }
+        }
+      }
+      .service-item__textarea {
+        right: initial;
+        left: 0;
+        padding-left: 4rem;
+        @include sp {
+          padding-left: 2rem;
+        }
+      }
+    }
+
+    &__image {
+      width: 60rem;
+      position: relative;
+      z-index: 10;
+      @include sp {
+        width: 100%;
+      }
+      .pic-text {
+        margin-top: 1.9rem;
+        @include sp {
+          margin: 0.5rem 0 0.6rem 0;
+        }
+      }
+    }
+
+    &__textarea {
+      background-color: $section-color;
+      height: 25rem;
+      width: 50rem;
+      position: absolute;
+      right: 0;
+      top: 14.5rem;
+      padding-top: 5rem;
+      padding-left: 22rem;
+      color: #ffffff;
+      @include sp {
+        width: 100%;
+        padding: 2rem 2rem 1.2rem;
+        position: relative;
+        top: initial;
+        height: initial;
+      }
+      .ib-span {
+        font-size: 2.5rem;
+        line-height: calc(33 / 25);
+        margin-bottom: 2rem;
+        display: inline-block;
+        @include sp {
+          // padding: 2rem 2rem 1.4rem 0;
+          margin-bottom: initial;
+          font-size: 2rem;
+          padding-bottom: 0.9rem;
+        }
+      }
+    }
+  }
+}

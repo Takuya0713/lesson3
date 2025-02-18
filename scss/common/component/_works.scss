@@ -1,0 +1,51 @@
+@use "../../grobal/mixin" as *;
+@use "../../grobal/variable" as *;
+
+// WORKS部分
+.works {
+  padding: 8rem 0 7.5rem;
+  @include sp {
+    padding: 5rem 0 4.3rem;
+  }
+  &__contents {
+    margin-top: 7rem;
+    @include sp {
+      margin-top: 4.4rem;
+    }
+  }
+  // 画像部分親要素→横並び
+  &__items {
+    // display: flex;
+    display: grid;
+    column-gap: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-template-columns: repeat(4, auto);
+    @include sp {
+      display: initial;
+    }
+  }
+  &-item {
+    flex: 1;
+    @include sp {
+      margin-top: initial;
+    }
+    // 画像部分
+    &__image {
+      cursor: pointer;
+    }
+    // pタグ部分
+    &__text {
+      cursor: pointer;
+      font-size: 1.6rem;
+      margin-top: 1rem;
+      @include sp {
+        margin: 0.7rem 0 2.3rem;
+        &.last {
+          @include sp {
+            margin: 0.7rem 0 0;
+          }
+        }
+      }
+    }
+  }
+}
