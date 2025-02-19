@@ -11,7 +11,9 @@
   &-inner {
     max-width: calc(722 / 1080 * 100vw);
     margin: 0 auto;
+    padding-bottom: 8rem;
     @include sp {
+      padding-bottom: 5rem;
       max-width: initial;
       padding: 5rem 3rem 0;
     }
@@ -60,10 +62,8 @@
       }
     }
     .sns-links {
-      padding-bottom: 8rem;
       margin-top: 3rem;
       @include sp {
-        padding-bottom: 5rem;
         margin-top: initial;
       }
       ul {

@@ -13,6 +13,7 @@
   width: 6.8rem;
   height: 6.8rem;
   border-radius: 50%;
+  transition: all 0.5s;
   @include sp {
     width: 5rem;
     height: 5rem;
@@ -27,7 +28,7 @@
   &:hover,
   &:hover img {
     opacity: 0.75;
-    transition: 0.5s;
+    // transition: all 0.5s;
     cursor: pointer;
     filter: alpha(opacity=50);
     @include sp {
