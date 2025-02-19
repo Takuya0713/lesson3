@@ -423,6 +423,7 @@ img {
   display: block;
   padding-left: 4rem;
   font-size: 1.8rem;
+  cursor: pointer;
 }
 @media (max-width: 767px) {
   .contact .gender__checks input[type=radio] + span {
@@ -1506,6 +1507,11 @@ body.no-scroll {
 
 .works {
   padding: 8rem 0 7.5rem;
+  /*
+  grid-template-columnsはグリッドの列幅を指定するプロパティ。
+  grid-template-columnsで自動で横並びにする（ナレッジ保存）
+  https://chatgpt.com/c/67b5c997-7090-8010-9eb8-2565f64d86f5
+  */
 }
 @media (max-width: 767px) {
   .works {
@@ -1523,12 +1529,12 @@ body.no-scroll {
 .works__items {
   display: grid;
   column-gap: 4rem;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(4, 1fr);
 }
 @media (max-width: 767px) {
   .works__items {
-    display: initial;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 2.3rem;
   }
 }
 .works-item {
@@ -1547,17 +1553,6 @@ body.no-scroll {
   font-size: 1.6rem;
   margin-top: 1rem;
 }
-@media (max-width: 767px) {
-  .works-item__text {
-    margin: 0.7rem 0 2.3rem;
-  }
-}
-@media (max-width: 767px) and (max-width: 767px) {
-  .works-item__text.last {
-    margin: 0.7rem 0 0;
-  }
-}
-
 body[data-aos-duration="50"] [data-aos], [data-aos][data-aos][data-aos-duration="50"] {
   transition-duration: 50ms;
 }

@@ -14,14 +14,22 @@
     }
   }
   // 画像部分親要素→横並び
+  /*
+  grid-template-columnsはグリッドの列幅を指定するプロパティ。
+  grid-template-columnsで自動で横並びにする（ナレッジ保存）
+  https://chatgpt.com/c/67b5c997-7090-8010-9eb8-2565f64d86f5
+  */
   &__items {
-    // display: flex;
     display: grid;
     column-gap: 4rem;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    grid-template-columns: repeat(4, auto);
+    // grid-template-columns: repeat(4, auto);
+    // 4つの列を作って、列は自動調整
+    grid-template-columns: repeat(4, 1fr);
+    // 4つの列を作って、列は均等（全て同じ）
     @include sp {
-      display: initial;
+      grid-template-columns: repeat(1, 1fr);
+      // 1列で列はすべて均等（全て同じ）
+      row-gap: 2.3rem;
     }
   }
   &-item {
@@ -39,12 +47,12 @@
       font-size: 1.6rem;
       margin-top: 1rem;
       @include sp {
-        margin: 0.7rem 0 2.3rem;
-        &.last {
-          @include sp {
-            margin: 0.7rem 0 0;
-          }
-        }
+        // margin: 0.7rem 0 2.3rem;
+        // &.last {
+        //   @include sp {
+        //     margin: 0.7rem 0 0;
+        //   }
+        // }
       }
     }
   }
