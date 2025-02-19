@@ -19,7 +19,6 @@ $(function () {
     }
   });
 
-  // 0213追加
   $(document).ready(function () {
     // ハンバーガーボタンをクリック
     $("#hamburger-block").click(function (event) {
@@ -38,28 +37,28 @@ $(function () {
       closeMenu();
     });
 
-    // 0213追加
     // メニューを開く
     function openMenu() {
       // $(".hamburger").addClass("active");
       $(".hamburger").addClass("active");
       $(".header__nav").addClass("active").css({
-        "transition": "transform 0.3s ease-in-out",
-        "transform": "translateX(0%)"
+        transition: "transform 0.3s ease-in-out",
+        transform: "translateX(0%)",
       });
     }
-    
-    // ナビゲーション以外の場所をクリックしたら閉じる処理
-    $(document).click(function (event) {
-      if (
-        !$(event.target).closest("#hamburger-block").length && //ハンバーガーアイコン以外
-        !$(event.target).closest(".header__nav").length //ナビゲーション以外→0214ケンタローさんへ質問予定。
-      ) {
-        closeMenu();
-      }
-    });
 
-    // 0213追加
+    // ナビゲーション以外の場所をクリックしたら閉じる処理
+    if ($(window).width() <= 767) {
+      $(document).click(function (event) {
+        if (
+          !$(event.target).closest("#hamburger-block").length && //ハンバーガーアイコン以外
+          !$(event.target).closest(".header__nav").length
+        ) {
+          closeMenu();
+        }
+      });
+    }
+
     function closeMenu() {
       $(".header__nav").css({
         transition: "transform 0.3s ease-in-out",

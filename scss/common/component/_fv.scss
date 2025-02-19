@@ -5,6 +5,7 @@
 // 文字部分の単位はvwで設定する→解像度に合わせて文字サイズも変化させるため。
 .fv-eyecatch {
   position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
   // FV画像テキスト
   .fv-wrapper {
     width: 100%;
@@ -16,6 +17,7 @@
     // タイトルが上下左右中央に来る
     display: grid;
     place-content: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
   }
 
   // FVタイトル

@@ -4,7 +4,7 @@
   align-items: center;
   color: $text-white;
   position: fixed;
-  padding: vw(25) vw(80);
+  padding: 0 vw(80);
   z-index: 999;
   width: 100%;
   display: flex;
@@ -48,7 +48,7 @@
   // ハンバーガーボタン部分
   .hamburger {
     @include sp {
-      transition: 0.3s;
+      // transition: 0.3s;
       position: relative;
       display: flex;
       justify-content: center;
@@ -61,6 +61,7 @@
       row-gap: 0.7rem;
       // ハンバーガーclose時（×）
       &-line {
+        transition: 0.3s;
         display: block;
         background-color: $section-color;
         border-radius: 0.2rem;
@@ -176,10 +177,15 @@
       }
       li {
         @include sp {
-          padding: 1.2rem 0 1.2rem 2rem;
+          align-items: center;
           background-color: $section-color;
+          display: flex;
           font-size: 1.8rem;
+          padding: 0 0 0 2rem;
           // タップ時にボタン部分が黒く反応するようにしたい
+          font-size: 1.8rem;
+          height: 5.8rem;
+          width: 30rem;
         }
         &:hover {
           @include sp {
