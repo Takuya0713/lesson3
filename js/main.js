@@ -48,6 +48,36 @@ $(function () {
     }
 
     // ナビゲーション以外の場所をクリックしたら閉じる処理
+    // function handleResize() {
+    //   $(document).off("click"); //既存のイベント削除
+
+    //   if ($(window).width() <= 767) {
+    //     $(document).click(function (event) {
+    //       if (
+    //         !$(event.target).closest("#hamburger-block").length && //ハンバーガーアイコン以外
+    //         !$(event.target).closest(".header__nav").length //ナビゲーション以外
+    //       ) {
+    //         closeMenu();
+    //       }
+    //     });
+    //   }
+    // }
+    // // 初回実行
+    // handleResize();
+    // // ウインドウサイズが変更したら再評価
+    // $(window).resize(handlesize);
+
+    // メニューを開く
+    function openMenu() {
+      // $(".hamburger").addClass("active");
+      $(".hamburger").addClass("active");
+      $(".header__nav").addClass("active").css({
+        transition: "transform 0.3s ease-in-out",
+        transform: "translateX(0%)",
+      });
+    }
+
+    // ナビゲーション以外の場所をクリックしたら閉じる処理
     if ($(window).width() <= 767) {
       $(document).click(function (event) {
         if (
@@ -58,12 +88,27 @@ $(function () {
         }
       });
     }
+
+    // ケンタローさん表記のコード
+    if ($(window).width() <= 767) {
+      $(document).click(function (event) {
+        if (
+          !$(event.target).closest("#hamburger-block").length && //ハンバーガーアイコン以外
+          !$(event.target).closest(".header__nav").length //ナビゲーション以外→0214ケンタローさんへ質問予定。
+        ) {
+          closeMenu();
+        }
+      });
+    }
+
+    // https://chatgpt.com/c/67b70fe4-07c0-8010-adb1-308021ea5225
+
     function closeMenu() {
       $(".header__nav").css({
         transition: "transform 0.3s ease-in-out",
         transform: "translateX(100%)",
       });
-      // https://chatgpt.com/c/67b70fe4-07c0-8010-adb1-308021ea5225
+
       setTimeout(function () {
         $(".hamburger").removeClass("active");
         $(".header__nav").removeClass("active");
