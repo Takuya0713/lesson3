@@ -52,19 +52,18 @@ $(function () {
       $(document).click(function (event) {
         if (
           !$(event.target).closest("#hamburger-block").length && //ハンバーガーアイコン以外
-          !$(event.target).closest(".header__nav").length
+          !$(event.target).closest(".header__nav").length //ナビゲーション以外
         ) {
           closeMenu();
         }
       });
     }
-
     function closeMenu() {
       $(".header__nav").css({
         transition: "transform 0.3s ease-in-out",
         transform: "translateX(100%)",
       });
-
+      // https://chatgpt.com/c/67b70fe4-07c0-8010-adb1-308021ea5225
       setTimeout(function () {
         $(".hamburger").removeClass("active");
         $(".header__nav").removeClass("active");

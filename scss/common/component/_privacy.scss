@@ -26,14 +26,19 @@
     }
   }
   .pp-inner {
-    overflow-y: scroll;
+    // overflow-y: scroll;
+    overflow: scroll;
     height: 30rem;
     width: 80rem;
     padding: 4rem;
     background-color: $text-white;
     font-size: initial;
+    // スクロールボタン・スクロールバー部分の順に色を決める
     scrollbar-color: rgba(155, 155, 155, 1) rgba(227, 227, 227, 1);
     scrollbar-width: thin;
+    // ::-webkit-scrollbar-button {
+    //   display: none;
+    // }
     @include sp {
       width: 100%;
       padding: 3rem 5rem 3rem 3rem;
@@ -83,7 +88,7 @@
     color: $text-white;
     font-size: 2rem;
     line-height: calc(30 / 20);
-    transition: all .5s;
+    transition: all 0.5s;
     @include sp {
       width: 31.5rem;
     }
@@ -92,7 +97,6 @@
     background-color: $text-white;
     color: $section-color;
     border: 1px solid #4d9600;
-    // transition: 0.5s;
     font-weight: bold;
   }
 }

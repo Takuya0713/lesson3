@@ -1282,7 +1282,7 @@ body.no-scroll {
   }
 }
 .privacy-policy__wrapper .pp-inner {
-  overflow-y: scroll;
+  overflow: scroll;
   height: 30rem;
   width: 80rem;
   padding: 4rem;
