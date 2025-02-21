@@ -1,3 +1,4 @@
+// slick部分の設定
 $(function () {
   // 【スライダー】
   $(".first-view").slick({
@@ -10,6 +11,7 @@ $(function () {
   });
 
   // 【スクロール時のヘッダーの背景色変更】
+  // MVのfv-eyecatch部分より以降にスクロールした場合
   $(window).on("scroll", function () {
     mvHeight = $(".fv-eyecatch").height();
     if ($(window).scrollTop() > mvHeight) {
@@ -20,7 +22,7 @@ $(function () {
   });
 
   $(document).ready(function () {
-    // ハンバーガーボタンをクリック
+    // ハンバーガーブロックボタンをクリック時に
     $("#hamburger-block").click(function (event) {
       event.stopPropagation(); // クリックイベントの伝播を防ぐ
       // ハンバーガーボタンがアクティブ状態のときにクリックするとナビゲーションが閉じる
@@ -39,7 +41,6 @@ $(function () {
 
     // メニューを開く
     function openMenu() {
-      // $(".hamburger").addClass("active");
       $(".hamburger").addClass("active");
       $(".header__nav").addClass("active").css({
         transition: "transform 0.3s ease-in-out",
@@ -47,59 +48,61 @@ $(function () {
       });
     }
 
-    // ナビゲーション以外の場所をクリックしたら閉じる処理
-    // 0221以下1行目の2行目を入れ替えるとSPサイトでドロワーメニューが戻らないので検証する。
-    // 【変更前のコード】
-  //   if ($(window).width() <= 767) {
-  //     $(document).click(function (event) {
+    // ナビゲーション以外の場所をクリックしたら閉じる処理→768px以上でも発動してしまう。
+    // 【修正中のコード】
+    if ($(window).width() <= 767) {
+      $(document).click(function (event) {
+        if (
+          !$(event.target).closest("#hamburger-block").length && //ハンバーガーアイコン以外
+          !$(event.target).closest(".header__nav").length //ナビゲーション以外
+          // ハンバーガーアイコンとナビゲーションアイコンをクリックしても閉じるようにする。
+        ) {
+          closeMenu();
+        }
+      });
+    }
+    function closeMenu() {
+      if ($(window).width() <= 767) {
+        $(".header__nav").css({
+          transition: "transform 0.3s ease-in-out",
+          transform: "translateX(100%)",
+        });
+        // 767px以下の場合のみCSS付与を行う。
+        setTimeout(function () {
+          $(".hamburger").removeClass("active");
+          $(".header__nav").removeClass("active");
+        }, 300); // 0.3秒後にクラスを削除（アニメーション完了後）
+      }
+    }
+  });
+
+  // 【一旦・こちらはコメントアウト変更後のコード】→SPサイトでドロワーメニューが戻らないので検証！
+  // https://chatgpt.com/c/67b70fe4-07c0-8010-adb1-308021ea5225
+  //   $(document).click(function (event) {
+  //     if ($(window).width() <= 767) {
   //       if (
   //         !$(event.target).closest("#hamburger-block").length && //ハンバーガーアイコン以外
   //         !$(event.target).closest(".header__nav").length //ナビゲーション以外
   //       ) {
   //         closeMenu();
   //       }
-  //     });
-  //   }
-  //   function closeMenu() {
-  //     $(".header__nav").css({
-  //       transition: "transform 0.3s ease-in-out",
-  //       transform: "translateX(100%)",
-  //     });
-  //     // https://chatgpt.com/c/67b70fe4-07c0-8010-adb1-308021ea5225
-  //     setTimeout(function () {
-  //       $(".hamburger").removeClass("active");
-  //       $(".header__nav").removeClass("active");
-  //     }, 300); // 0.3秒後にクラスを削除（アニメーション完了後）
-  //   }
+  //     }
+  //     function closeMenu() {
+  //       $(".header__nav").css({
+  //         transition: "transform 0.3s ease-in-out",
+  //         transform: "translateX(100%)",
+  //       });
+  //       setTimeout(function () {
+  //         $(".hamburger").removeClass("active");
+  //         $(".header__nav").removeClass("active");
+  //       }, 300); // 0.3秒後にクラスを削除（アニメーション完了後）
+  //     }
+  //   });
   // });
-
-  // 【変更後のコード】→SPサイトでドロワーメニューが戻らないので検証！
-  $(document).click(function (event) {
-    if ($(window).width() <= 767) {
-        if (
-          !$(event.target).closest("#hamburger-block").length && //ハンバーガーアイコン以外
-          !$(event.target).closest(".header__nav").length //ナビゲーション以外
-        ) {
-          closeMenu();
-        }
-    }
-    function closeMenu() {
-      $(".header__nav").css({
-        transition: "transform 0.3s ease-in-out",
-        transform: "translateX(100%)",
-      });
-      // https://chatgpt.com/c/67b70fe4-07c0-8010-adb1-308021ea5225
-      setTimeout(function () {
-        $(".hamburger").removeClass("active");
-        $(".header__nav").removeClass("active");
-      }, 300); // 0.3秒後にクラスを削除（アニメーション完了後）
-    }
-  });
-});
-
-
-
-  // 【～ハンバーガーメニューの開閉処理】
+  /*
+  767px以下の場合、ハンバーガーボタンとヘッダーナビゲーションが閉じていたらcloseMenuを実行。
+  closeMenuではCSSで0.3秒掛けてナビゲーションメニューを右側に移動させる。
+  */
 
   // 【TOPへ戻るボタン】作成部分
   var scrolltop = $(".scroll-top-btn");
