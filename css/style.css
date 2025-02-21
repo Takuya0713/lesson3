@@ -66,8 +66,7 @@ textarea {
 /* minimum style to allow to style meter element */
 meter {
   -webkit-appearance: revert;
-  -moz-appearance: revert;
-       appearance: revert;
+  appearance: revert;
 }
 
 /* preformatted text - use only for this feature */
@@ -77,9 +76,6 @@ meter {
 }
 
 /* reset default text opacity of input placeholder */
-::-moz-placeholder {
-  color: unset;
-}
 ::placeholder {
   color: unset;
 }
@@ -119,9 +115,7 @@ meter {
 
 /* inputタグを表示されるようにする */
 input {
-  -webkit-appearance: revert;
-     -moz-appearance: revert;
-          appearance: revert;
+  appearance: revert;
 }
 
 html {
@@ -412,15 +406,13 @@ img {
   flex: 1;
 }
 .contact .gender__checks {
-  -moz-column-gap: 7.7rem;
-       column-gap: 7.7rem;
+  column-gap: 7.7rem;
   display: flex;
 }
 @media (max-width: 767px) {
   .contact .gender__checks {
     margin-left: 5rem;
-    -moz-column-gap: 3rem;
-         column-gap: 3rem;
+    column-gap: 3rem;
   }
 }
 .contact .gender__checks input[type=radio] {
@@ -498,9 +490,6 @@ img {
     margin-top: -0.5rem;
   }
 }
-.contact input::-moz-placeholder, .contact textarea::-moz-placeholder {
-  color: #a0a0a0;
-}
 .contact input::placeholder,
 .contact textarea::placeholder {
   color: #a0a0a0;
@@ -577,14 +566,12 @@ img {
   flex-wrap: wrap;
   width: 100%;
   row-gap: 1.5rem;
-  -moz-column-gap: 1rem;
-       column-gap: 1rem;
+  column-gap: 1rem;
 }
 @media (max-width: 767px) {
   .check-box dl dd {
     row-gap: 0.3rem;
-    -moz-column-gap: initial;
-         column-gap: initial;
+    column-gap: initial;
   }
 }
 .check-box dl dd input[type=checkbox] {
@@ -689,8 +676,7 @@ img {
     flex-wrap: wrap;
     align-items: initial;
     justify-content: center;
-    -moz-column-gap: 3rem;
-         column-gap: 3rem;
+    column-gap: 3rem;
     padding: initial;
     margin: 2.6rem 0 2.8rem 0;
     row-gap: 1rem;
@@ -715,10 +701,8 @@ img {
 .footer .footer-nav .sns-links ul {
   width: 27.9778393352vw;
   margin: 0 auto;
-  width: -moz-fit-content;
   width: fit-content;
-  -moz-column-gap: 3rem;
-       column-gap: 3rem;
+  column-gap: 3rem;
   display: flex;
   align-items: center;
 }
@@ -816,8 +800,7 @@ img {
     top: 0;
     width: 100%;
     padding: 5rem 0 0;
-    -moz-column-gap: 2.4rem;
-         column-gap: 2.4rem;
+    column-gap: 2.4rem;
   }
 }
 .section-about .description-title h2 {
@@ -945,15 +928,13 @@ img {
 }
 .header .header__nav ul {
   display: flex;
-  -moz-column-gap: 3.1rem;
-       column-gap: 3.1rem;
+  column-gap: 3.1rem;
 }
 @media (max-width: 767px) {
   .header .header__nav ul {
     display: block;
     align-items: center;
-    -moz-column-gap: initial;
-         column-gap: initial;
+    column-gap: initial;
     width: 30rem;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
@@ -983,8 +964,7 @@ img {
   background-color: #ffffff;
   bottom: 2.8rem;
   left: 0;
-  -webkit-clip-path: inset(0 100% 0 0);
-          clip-path: inset(0 100% 0 0);
+  clip-path: inset(0 100% 0 0);
   transition: all 0.4s;
 }
 @media (max-width: 767px) {
@@ -996,8 +976,7 @@ img {
   opacity: 0.75;
 }
 .header .header__nav li a:hover::before {
-  -webkit-clip-path: inset(0 0 0 0);
-          clip-path: inset(0 0 0 0);
+  clip-path: inset(0 0 0 0);
 }
 @media (max-width: 767px) {
   .header .header__nav.active {
@@ -1145,8 +1124,7 @@ body.no-scroll {
 }
 .news__blocks {
   display: flex;
-  -moz-column-gap: 6rem;
-       column-gap: 6rem;
+  column-gap: 6rem;
 }
 @media (max-width: 767px) {
   .news__blocks {
@@ -1185,14 +1163,12 @@ body.no-scroll {
   display: flex;
   border-bottom: 1px #4d9600 solid;
   font-size: 1.8rem;
-  -moz-column-gap: 6.9rem;
-       column-gap: 6.9rem;
+  column-gap: 6.9rem;
   padding-block: 1.6rem;
 }
 @media (max-width: 767px) {
   .news-block-item {
-    -moz-column-gap: initial;
-         column-gap: initial;
+    column-gap: initial;
   }
 }
 .news-block-item__date {
@@ -1552,8 +1528,7 @@ body.no-scroll {
 }
 .works__items {
   display: grid;
-  -moz-column-gap: 4rem;
-       column-gap: 4rem;
+  column-gap: 4rem;
   grid-template-columns: repeat(4, 1fr);
 }
 @media (max-width: 767px) {

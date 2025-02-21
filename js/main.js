@@ -48,73 +48,56 @@ $(function () {
     }
 
     // ナビゲーション以外の場所をクリックしたら閉じる処理
-    // function handleResize() {
-    //   $(document).off("click"); //既存のイベント削除
+    // 0221以下1行目の2行目を入れ替えるとSPサイトでドロワーメニューが戻らないので検証する。
+    // 【変更前のコード】
+  //   if ($(window).width() <= 767) {
+  //     $(document).click(function (event) {
+  //       if (
+  //         !$(event.target).closest("#hamburger-block").length && //ハンバーガーアイコン以外
+  //         !$(event.target).closest(".header__nav").length //ナビゲーション以外
+  //       ) {
+  //         closeMenu();
+  //       }
+  //     });
+  //   }
+  //   function closeMenu() {
+  //     $(".header__nav").css({
+  //       transition: "transform 0.3s ease-in-out",
+  //       transform: "translateX(100%)",
+  //     });
+  //     // https://chatgpt.com/c/67b70fe4-07c0-8010-adb1-308021ea5225
+  //     setTimeout(function () {
+  //       $(".hamburger").removeClass("active");
+  //       $(".header__nav").removeClass("active");
+  //     }, 300); // 0.3秒後にクラスを削除（アニメーション完了後）
+  //   }
+  // });
 
-    //   if ($(window).width() <= 767) {
-    //     $(document).click(function (event) {
-    //       if (
-    //         !$(event.target).closest("#hamburger-block").length && //ハンバーガーアイコン以外
-    //         !$(event.target).closest(".header__nav").length //ナビゲーション以外
-    //       ) {
-    //         closeMenu();
-    //       }
-    //     });
-    //   }
-    // }
-    // // 初回実行
-    // handleResize();
-    // // ウインドウサイズが変更したら再評価
-    // $(window).resize(handlesize);
-
-    // メニューを開く
-    function openMenu() {
-      // $(".hamburger").addClass("active");
-      $(".hamburger").addClass("active");
-      $(".header__nav").addClass("active").css({
-        transition: "transform 0.3s ease-in-out",
-        transform: "translateX(0%)",
-      });
-    }
-
-    // ナビゲーション以外の場所をクリックしたら閉じる処理
+  // 【変更後のコード】→SPサイトでドロワーメニューが戻らないので検証！
+  $(document).click(function (event) {
     if ($(window).width() <= 767) {
-      $(document).click(function (event) {
         if (
           !$(event.target).closest("#hamburger-block").length && //ハンバーガーアイコン以外
           !$(event.target).closest(".header__nav").length //ナビゲーション以外
         ) {
           closeMenu();
         }
-      });
     }
-
-    // ケンタローさん表記のコード
-    if ($(window).width() <= 767) {
-      $(document).click(function (event) {
-        if (
-          !$(event.target).closest("#hamburger-block").length && //ハンバーガーアイコン以外
-          !$(event.target).closest(".header__nav").length //ナビゲーション以外→0214ケンタローさんへ質問予定。
-        ) {
-          closeMenu();
-        }
-      });
-    }
-
-    // https://chatgpt.com/c/67b70fe4-07c0-8010-adb1-308021ea5225
-
     function closeMenu() {
       $(".header__nav").css({
         transition: "transform 0.3s ease-in-out",
         transform: "translateX(100%)",
       });
-
+      // https://chatgpt.com/c/67b70fe4-07c0-8010-adb1-308021ea5225
       setTimeout(function () {
         $(".hamburger").removeClass("active");
         $(".header__nav").removeClass("active");
       }, 300); // 0.3秒後にクラスを削除（アニメーション完了後）
     }
   });
+});
+
+
 
   // 【～ハンバーガーメニューの開閉処理】
 
