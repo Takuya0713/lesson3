@@ -1282,14 +1282,19 @@ body.no-scroll {
   }
 }
 .privacy-policy__wrapper .pp-inner {
-  overflow: scroll;
+  overflow-y: scroll;
   height: 30rem;
   width: 80rem;
   padding: 4rem;
   background-color: #ffffff;
   font-size: initial;
-  scrollbar-color: rgb(155, 155, 155) rgb(227, 227, 227);
-  scrollbar-width: thin;
+}
+.privacy-policy__wrapper .pp-inner::-webkit-scrollbar {
+  width: 1rem;
+  background-color: rgb(227, 227, 227);
+}
+.privacy-policy__wrapper .pp-inner::-webkit-scrollbar-thumb {
+  background-color: rgb(155, 155, 155);
 }
 @media (max-width: 767px) {
   .privacy-policy__wrapper .pp-inner {

@@ -26,19 +26,24 @@
     }
   }
   .pp-inner {
-    // overflow-y: scroll;
-    overflow: scroll;
+    overflow-y: scroll;
     height: 30rem;
     width: 80rem;
     padding: 4rem;
     background-color: $text-white;
     font-size: initial;
-    // スクロールボタン・スクロールバー部分の順に色を決める
-    scrollbar-color: rgba(155, 155, 155, 1) rgba(227, 227, 227, 1);
-    scrollbar-width: thin;
-    // ::-webkit-scrollbar-button {
-    //   display: none;
-    // }
+
+    // スクロールバー全体のスタイル
+    &::-webkit-scrollbar {
+      width: 1rem;
+      background-color: rgba(227, 227, 227, 1);
+    }
+
+    // スクロールボタンのスタイル
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(155, 155, 155, 1);
+    }
+
     @include sp {
       width: 100%;
       padding: 3rem 5rem 3rem 3rem;

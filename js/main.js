@@ -10,17 +10,6 @@ $(function () {
     arrows: false, // 矢印
   });
 
-  // 【スクロール時にヘッダーの背景色をふわっと表示されるように変更】
-
-  // 0222変更前
-  // $(window).on("scroll", function () {
-  //   mvHeight = $(".fv-eyecatch").height();
-  //   if ($(window).scrollTop() > mvHeight) {
-  //     $(".header").addClass("scroll-bg");
-  //   } else {
-  //     $(".header").removeClass("scroll-bg");
-  //   }
-  // });
 
   // 0222　アニメーションが上から下に落ちて消えてしまう。
   $(window).on("scroll", function () {
@@ -145,3 +134,15 @@ window.onload = function () {
 
 // 0222　ヘッダー部分がMVを過ぎたあたりで1秒掛けてふわっと表示されるようにしたい。
 // javascriptにて設定するかAOSで設定するか考えながら行う。
+
+  // 【スクロール時にヘッダーの背景色をふわっと表示されるように変更】
+
+  // 0222変更前
+  // $(window).on("scroll", function () {
+  //   mvHeight = $(".fv-eyecatch").height();
+  //   if ($(window).scrollTop() > mvHeight) {
+  //     $(".header").addClass("scroll-bg");
+  //   } else {
+  //     $(".header").removeClass("scroll-bg");
+  //   }
+  // });
