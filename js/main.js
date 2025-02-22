@@ -10,14 +10,29 @@ $(function () {
     arrows: false, // 矢印
   });
 
-  // 【スクロール時のヘッダーの背景色変更】
-  // MVのfv-eyecatch部分より以降にスクロールした場合
+  // 【スクロール時にヘッダーの背景色をふわっと表示されるように変更】
+
+  // 0222変更前
+  // $(window).on("scroll", function () {
+  //   mvHeight = $(".fv-eyecatch").height();
+  //   if ($(window).scrollTop() > mvHeight) {
+  //     $(".header").addClass("scroll-bg");
+  //   } else {
+  //     $(".header").removeClass("scroll-bg");
+  //   }
+  // });
+
+  // 0222　アニメーションが上から下に落ちて消えてしまう。
   $(window).on("scroll", function () {
     mvHeight = $(".fv-eyecatch").height();
     if ($(window).scrollTop() > mvHeight) {
-      $(".header").addClass("scroll-bg");
+      $(".header").addClass("scroll-bg").attr("data-aos", "fade");
+      AOS.refresh();
+      // クラス名とAOSアニメーションを追加
     } else {
-      $(".header").removeClass("scroll-bg");
+      $(".header").removeClass("scroll-bg").removeAttr("data-aos");
+      AOS.refresh();
+      // クラス名とAOSアニメーションを削除
     }
   });
 
