@@ -48,8 +48,6 @@ $(function () {
       });
     }
 
-    // ナビゲーション以外の場所をクリックしたら閉じる処理→768px以上でも発動してしまう。
-    // 【修正中のコード】
     if ($(window).width() <= 767) {
       $(document).click(function (event) {
         if (
@@ -76,33 +74,7 @@ $(function () {
     }
   });
 
-  // 【一旦・こちらはコメントアウト変更後のコード】→SPサイトでドロワーメニューが戻らないので検証！
   // https://chatgpt.com/c/67b70fe4-07c0-8010-adb1-308021ea5225
-  //   $(document).click(function (event) {
-  //     if ($(window).width() <= 767) {
-  //       if (
-  //         !$(event.target).closest("#hamburger-block").length && //ハンバーガーアイコン以外
-  //         !$(event.target).closest(".header__nav").length //ナビゲーション以外
-  //       ) {
-  //         closeMenu();
-  //       }
-  //     }
-  //     function closeMenu() {
-  //       $(".header__nav").css({
-  //         transition: "transform 0.3s ease-in-out",
-  //         transform: "translateX(100%)",
-  //       });
-  //       setTimeout(function () {
-  //         $(".hamburger").removeClass("active");
-  //         $(".header__nav").removeClass("active");
-  //       }, 300); // 0.3秒後にクラスを削除（アニメーション完了後）
-  //     }
-  //   });
-  // });
-  /*
-  767px以下の場合、ハンバーガーボタンとヘッダーナビゲーションが閉じていたらcloseMenuを実行。
-  closeMenuではCSSで0.3秒掛けてナビゲーションメニューを右側に移動させる。
-  */
 
   // 【TOPへ戻るボタン】作成部分
   var scrolltop = $(".scroll-top-btn");
@@ -155,3 +127,6 @@ window.onload = function () {
     once: true,
   });
 };
+
+// 0222　ヘッダー部分がMVを過ぎたあたりで1秒掛けてふわっと表示されるようにしたい。
+// javascriptにて設定するかAOSで設定するか考えながら行う。
