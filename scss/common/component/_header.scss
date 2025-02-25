@@ -1,14 +1,13 @@
 @use "../../grobal/mixin" as *;
 @use "../../grobal/variable" as *;
 .header {
-  align-items: center;
   color: $text-white;
   position: fixed;
   // padding: 0 vw(80);
-  padding-inline: vw(80);
+  // padding-inline: vw(80);
   z-index: 999;
   width: 100%;
-  display: flex;
+  // display: flex;
   height: 8rem;
   left: 0;
   top: 0;
@@ -18,22 +17,36 @@
   @include sp {
     height: 5rem;
     padding-right: 0;
-    justify-content: space-between;
+    // justify-content: space-between;
+  }
+
+  .inner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    @include sp{
+      width: 100%;
+      padding-left: 2rem;
+      justify-content: space-between; //ハンバーガーボタンが一番右に移動する。
+      
+    }
   }
   &.scroll-bg {
-    background-color: $section-color;
+    background: $section-color;
     color: $text-white;
     position: fixed;
   }
 
   // ヘッダーロゴ部分
   .header__title {
-    font-size: vw(20);
+    // font-size: vw(20);
+    font-size: min(vw(20), 20px);
     height: inherit;
     display: flex;
     align-items: center;
     @include sp {
       font-size: 2rem;
+      // font-size: min(vw(20), 20px);
     }
     h1 {
       a {
@@ -41,6 +54,9 @@
         align-items: center;
         justify-content: center;
         height: 8rem;
+        @include sp{
+          height: 5rem;
+        }
       }
       a:hover {
         opacity: 0.75;
@@ -51,7 +67,6 @@
   // ハンバーガーボタン部分
   .hamburger {
     @include sp {
-      // transition: 0.3s;
       position: relative;
       display: flex;
       justify-content: center;
@@ -108,8 +123,8 @@
       align-items: initial;
     }
     &.active {
-      @include sp{
-        right: 0%;
+      @include sp {
+        right: 0;
       }
     }
     ul {
@@ -124,13 +139,16 @@
     }
     li {
       color: $text-white;
-      font-size: vw(18);
+      // font-size: vw(18);
+      font-size: min(vw(18), 18px);
       line-height: calc(33 / 18);
       @include sp {
         align-items: center;
         background-color: $section-color;
         display: flex;
         font-size: 1.8rem;
+        // font-size: min(vw(18), 18px);
+
         padding: 0 0 0 2rem;
         // タップ時にボタンが黒く反応するようにしたい
         height: 5.8rem;
@@ -203,10 +221,10 @@
           align-items: center;
           background-color: $section-color;
           display: flex;
-          font-size: 1.8rem;
           padding: 0 0 0 2rem;
           // タップ時にボタン部分が黒く反応するようにしたい
           font-size: 1.8rem;
+          // font-size: min(vw(18), 18px);
           height: 5.8rem;
           width: 30rem;
         }

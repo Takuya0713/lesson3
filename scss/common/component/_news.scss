@@ -59,6 +59,9 @@
       font-size: 1.8rem;
       column-gap: 6.9rem;
       padding-block: 1.6rem;
+      &:hover{
+        opacity: .5;
+      }
       @include sp {
         column-gap: initial;
       }
