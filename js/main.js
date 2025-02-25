@@ -65,8 +65,11 @@ $(function () {
     }
   });
 
+<<<<<<< Updated upstream
   // https://chatgpt.com/c/67b70fe4-07c0-8010-adb1-308021ea5225
 
+=======
+>>>>>>> Stashed changes
   // 【TOPへ戻るボタン】作成部分
   var scrolltop = $(".scroll-top-btn");
   // ヘッダーの高さを取得する
