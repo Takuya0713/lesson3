@@ -4,13 +4,16 @@
   align-items: center;
   color: $text-white;
   position: fixed;
-  padding: 0 vw(80);
+  // padding: 0 vw(80);
+  padding-inline: vw(80);
   z-index: 999;
   width: 100%;
   display: flex;
   height: 8rem;
   left: 0;
   top: 0;
+  // 2/25　0.5秒掛けてヘッダー部分を「変化」させる
+  transition: all 0.5s;
   // スクロールした時の背景色（切り替えはjQueryで行う）
   @include sp {
     height: 5rem;
@@ -88,6 +91,7 @@
       }
     }
   }
+
   // ナビゲーション表示部分
   .header__nav {
     display: flex;
@@ -97,13 +101,16 @@
     @include sp {
       position: fixed;
       top: 5rem;
-      left: 7.5rem;
-      right: 0;
+      // left: 7.5rem;
+      // right: 0;
+      right: -110%;
+      // -10%で完全非表示、-110%で右側に100%分寄っていく（-100%）
       align-items: initial;
     }
-    // 0213追加
-    &.active ul {
-      transform: translateX(0%);
+    &.active {
+      @include sp{
+        right: 0%;
+      }
     }
     ul {
       display: flex;
@@ -113,15 +120,28 @@
         align-items: center;
         column-gap: initial;
         width: 30rem;
-        transform: translateX(100%);
-        // 0213追加
-        transition: transform 0.3s ease-in-out;
       }
     }
     li {
       color: $text-white;
       font-size: vw(18);
       line-height: calc(33 / 18);
+      @include sp {
+        align-items: center;
+        background-color: $section-color;
+        display: flex;
+        font-size: 1.8rem;
+        padding: 0 0 0 2rem;
+        // タップ時にボタンが黒く反応するようにしたい
+        height: 5.8rem;
+        width: 30rem;
+      }
+      &:hover {
+        // background-color: rgba(0, 0, 0, 1);
+        @include sp {
+          background-color: rgba(0, 0, 0, 1);
+        }
+      }
       a {
         height: 8rem;
         display: flex;
@@ -129,6 +149,9 @@
         position: relative;
         @include sp {
           height: 5.8rem;
+          // display: block;
+          width: 100%;
+          padding-left: initial;
           // (348 / 6) = 5.8rem
         }
       }
@@ -158,12 +181,12 @@
       }
     }
     &.active {
-      @include sp {
-        position: fixed;
-        top: 5rem;
-        left: 7.5rem;
-        right: 0;
-      }
+      // @include sp {
+      //   position: fixed;
+      //   top: 5rem;
+      //   left: 7.5rem;
+      //   right: 0;
+      // }
 
       ul {
         @include sp {
@@ -187,11 +210,11 @@
           height: 5.8rem;
           width: 30rem;
         }
-        &:hover {
-          @include sp {
-            background-color: rgba(0, 0, 0, 1);
-          }
-        }
+        // &:hover {
+        //   @include sp {
+        //     background-color: rgba(0, 0, 0, 1);
+        //   }
+        // }
       }
     }
     @include sp {

@@ -10,18 +10,13 @@ $(function () {
     arrows: false, // 矢印
   });
 
-
-  // 0222　アニメーションが上から下に落ちて消えてしまう。
+  // スクロール画面の上部がFVの高さより大きくなったらクラス名「scroll-bg」を付与（付与されたらCSSが適用されて表示が変化する）
   $(window).on("scroll", function () {
     mvHeight = $(".fv-eyecatch").height();
     if ($(window).scrollTop() > mvHeight) {
-      $(".header").addClass("scroll-bg").attr("data-aos", "fade");
-      AOS.refresh();
-      // クラス名とAOSアニメーションを追加
+      $(".header").addClass("scroll-bg");
     } else {
-      $(".header").removeClass("scroll-bg").removeAttr("data-aos");
-      AOS.refresh();
-      // クラス名とAOSアニメーションを削除
+      $(".header").removeClass("scroll-bg");
     }
   });
 
@@ -46,10 +41,15 @@ $(function () {
     // メニューを開く
     function openMenu() {
       $(".hamburger").addClass("active");
-      $(".header__nav").addClass("active").css({
-        transition: "transform 0.3s ease-in-out",
-        transform: "translateX(0%)",
-      });
+      $(".header__nav").addClass("active").css({});
+    }
+
+    function closeMenu() {
+      if ($(window).width() <= 767) {
+        $(".header__nav").css({});
+        $(".hamburger").removeClass("active");
+        $(".header__nav").removeClass("active");
+      }
     }
 
     if ($(window).width() <= 767) {
@@ -62,19 +62,6 @@ $(function () {
           closeMenu();
         }
       });
-    }
-    function closeMenu() {
-      if ($(window).width() <= 767) {
-        $(".header__nav").css({
-          transition: "transform 0.3s ease-in-out",
-          transform: "translateX(100%)",
-        });
-        // 767px以下の場合のみCSS付与を行う。
-        setTimeout(function () {
-          $(".hamburger").removeClass("active");
-          $(".header__nav").removeClass("active");
-        }, 300); // 0.3秒後にクラスを削除（アニメーション完了後）
-      }
     }
   });
 
@@ -135,14 +122,14 @@ window.onload = function () {
 // 0222　ヘッダー部分がMVを過ぎたあたりで1秒掛けてふわっと表示されるようにしたい。
 // javascriptにて設定するかAOSで設定するか考えながら行う。
 
-  // 【スクロール時にヘッダーの背景色をふわっと表示されるように変更】
+// 【スクロール時にヘッダーの背景色をふわっと表示されるように変更】
 
-  // 0222変更前
-  // $(window).on("scroll", function () {
-  //   mvHeight = $(".fv-eyecatch").height();
-  //   if ($(window).scrollTop() > mvHeight) {
-  //     $(".header").addClass("scroll-bg");
-  //   } else {
-  //     $(".header").removeClass("scroll-bg");
-  //   }
-  // });
+// 0222変更前
+// $(window).on("scroll", function () {
+//   mvHeight = $(".fv-eyecatch").height();
+//   if ($(window).scrollTop() > mvHeight) {
+//     $(".header").addClass("scroll-bg");
+//   } else {
+//     $(".header").removeClass("scroll-bg");
+//   }
+// });
