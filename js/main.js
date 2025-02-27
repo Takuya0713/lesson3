@@ -38,12 +38,13 @@ $(function () {
       closeMenu();
     });
 
-    // メニューを開く
+    // ナビゲーションメニューを開く（ハンバーガーボタンとヘッダー部分にactiveがついたら発動）
     function openMenu() {
       $(".hamburger").addClass("active");
-      $(".header__nav").addClass("active")
+      $(".header__nav").addClass("active");
     }
-    
+
+    // ナビゲーションメニューを閉じる
     function closeMenu() {
       if ($(window).width() <= 767) {
         $(".hamburger").removeClass("active");

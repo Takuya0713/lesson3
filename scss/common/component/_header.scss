@@ -3,19 +3,15 @@
 .header {
   color: $text-white;
   position: fixed;
-  // padding: 0 vw(80);
-  // padding-inline: vw(80);
   z-index: 999;
   width: 100%;
-  // display: flex;
   height: 8rem;
   left: 0;
   top: 0;
-
+  transition: all 0.5s;
   @include sp {
     height: 5rem;
     padding-right: 0;
-    // justify-content: space-between;
   }
 
   .inner {
@@ -36,14 +32,12 @@
 
   // ヘッダーロゴ部分
   .header__title {
-    // font-size: vw(20);
     font-size: min(vw(20), 20px);
     height: inherit;
     display: flex;
     align-items: center;
     @include sp {
       font-size: 2rem;
-      // font-size: min(vw(20), 20px);
     }
     h1 {
       a {
@@ -115,15 +109,16 @@
       top: 5rem;
       // left: 7.5rem;
       // right: 0;
-      // 2/25　0.5秒掛けてヘッダー部分を「変化」させる
-      transition: all .5s;
-      right: -110%;
       // -10%で完全非表示、-110%で右側に100%分寄っていく（-100%）
+      right: -110%;
       align-items: initial;
+      // 2/25　0.5秒掛けてヘッダー部分を「変化」させる
+      transition: all 0.5s;
     }
     // ナビゲーションを開くとき
     &.active {
       @include sp {
+        // 0%で完全に左側にスライドする（-110%でナビゲーションが全て隠れる。110%可動→0%で全て表示される）
         right: 0;
       }
     }

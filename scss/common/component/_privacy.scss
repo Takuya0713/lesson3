@@ -47,9 +47,10 @@
     &::-webkit-scrollbar-thumb {
       background: rgba(155, 155, 155, 1);
       width: 2rem;
-      height: 3rem;
+      height: 4rem; //3rem分ボタンの高さを確保する
       border-right: 1rem solid transparent;
       border-top: 1rem solid transparent;
+      border-bottom: 1rem solid transparent;
       background-clip: padding-box;
     }
 
