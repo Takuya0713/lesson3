@@ -1304,20 +1304,14 @@ body.no-scroll {
   border-top: 1rem solid transparent;
   border-bottom: 1rem solid transparent;
   background-clip: padding-box;
-  border-right: 1rem solid transparent;
 }
 .privacy-policy__wrapper .pp-inner::-webkit-scrollbar-thumb {
   background: rgb(155, 155, 155);
+  width: 2rem;
   height: 3rem;
-  width: 1rem;
   border-right: 1rem solid transparent;
   border-top: 1rem solid transparent;
-  border-bottom: 1rem solid transparent;
   background-clip: padding-box;
-}
-.privacy-policy__wrapper .pp-inner::-webkit-scrollbar-track {
-  height: 3rem;
-  min-height: 3rem;
 }
 @media (max-width: 767px) {
   .privacy-policy__wrapper .pp-inner {
