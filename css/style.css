@@ -643,7 +643,7 @@ img {
   .footer-inner {
     padding-bottom: 5rem;
     max-width: initial;
-    padding: 5rem 3rem 0;
+    padding: 5rem 3rem;
   }
 }
 .footer .footer-wrapper h3 {
@@ -1299,21 +1299,25 @@ body.no-scroll {
 }
 .privacy-policy__wrapper .pp-inner::-webkit-scrollbar {
   width: 2rem;
+  background: rgb(227, 227, 227);
+  border-right: 1rem solid transparent;
+  border-top: 1rem solid transparent;
+  border-bottom: 1rem solid transparent;
+  background-clip: padding-box;
+  border-right: 1rem solid transparent;
+}
+.privacy-policy__wrapper .pp-inner::-webkit-scrollbar-thumb {
+  background: rgb(155, 155, 155);
   height: 3rem;
-  background-color: rgb(227, 227, 227);
+  width: 1rem;
   border-right: 1rem solid transparent;
   border-top: 1rem solid transparent;
   border-bottom: 1rem solid transparent;
   background-clip: padding-box;
 }
-.privacy-policy__wrapper .pp-inner::-webkit-scrollbar-thumb {
-  width: 2rem;
+.privacy-policy__wrapper .pp-inner::-webkit-scrollbar-track {
   height: 3rem;
-  background-color: rgb(155, 155, 155);
-  border-right: 1rem solid transparent;
-  border-top: 1rem solid transparent;
-  border-bottom: 1rem solid transparent;
-  background-clip: padding-box;
+  min-height: 3rem;
 }
 @media (max-width: 767px) {
   .privacy-policy__wrapper .pp-inner {
@@ -1370,6 +1374,7 @@ body.no-scroll {
   font-size: 2rem;
   line-height: 1.5;
   transition: all 0.5s;
+  border: 1px solid #4d9600;
 }
 @media (max-width: 767px) {
   .form-btn .form-submit {
