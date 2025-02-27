@@ -35,13 +35,27 @@
 
     // スクロールバー全体のスタイル
     &::-webkit-scrollbar {
-      width: 1rem;
+      width: 2rem;
+      // 通常幅の2倍に設定
+      height: 3rem;
       background-color: rgba(227, 227, 227, 1);
+      border-right: 1rem solid transparent;
+      // 右側の1rem分を削って表示されないようにする
+      border-top: 1rem solid transparent;
+      border-bottom: 1rem solid transparent;
+      background-clip: padding-box;
     }
 
     // スクロールボタンのスタイル
     &::-webkit-scrollbar-thumb {
+      width: 2rem;
+      height: 3rem;
       background-color: rgba(155, 155, 155, 1);
+      border-right: 1rem solid transparent;
+      // 右側の1rem分を削って表示されないようにする
+      border-top: 1rem solid transparent;
+      border-bottom: 1rem solid transparent;
+      background-clip: padding-box;
     }
 
     @include sp {
